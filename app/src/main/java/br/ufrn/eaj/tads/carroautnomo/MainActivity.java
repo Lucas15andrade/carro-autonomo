@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         botaoMapeamento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("TESTE", "Botão mapeamentui");
+                Log.i("TESTE", "Botão mapeamentusdsdi");
                 Intent intent = new Intent(getApplicationContext(), MapeamentoActivity.class);
                 startActivity(intent);
             }
