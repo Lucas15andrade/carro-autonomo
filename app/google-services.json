@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "68975162297",
+    "firebase_url": "https://jogodavelha-e0bcf.firebaseio.com",
+    "project_id": "jogodavelha-e0bcf",
+    "storage_bucket": "jogodavelha-e0bcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68975162297:android:a26ea1a6b8b8204f",
+        "android_client_info": {
+          "package_name": "br.ufrn.eaj.tads.carroautnomo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "68975162297-d45q4lm5c4hmcgrijcotrlbkigl28tet.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.ufrn.eaj.tads.carroautnomo",
+            "certificate_hash": "efebf09fecaa4e8c331698cb4432d33163b81700"
+          }
+        },
+        {
+          "client_id": "68975162297-t3jpnmrah4qh41e8iu61fnrmnahavb4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRTYG_6uGvwBj-SkIvJtM7I9Jr5JojF7Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "68975162297-t3jpnmrah4qh41e8iu61fnrmnahavb4g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "68975162297-70q4fg99u4i9ne3idtqvm9art5qjupj3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "software.jamelli.jogodavelha"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
