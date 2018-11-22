@@ -36,16 +36,6 @@ public class EstacionamentoActivity extends AppCompatActivity {
         mFirebase = FirebaseDatabase.getInstance();
         mreference = mFirebase.getReference().child("jogo");
 
-
-        /*
-        Criar os elementos no banco
-        for(int i=0;i < 3; i++){
-            for(int j = 0; j < 3;j++){
-                Jogo jogo = new Jogo(i,j,false);
-                mreference.push().setValue(jogo);
-            }
-        }*/
-
         tabuleiro = new ImageView[3][3];
 
         grid = findViewById(R.id.gridBoard);
@@ -61,9 +51,6 @@ public class EstacionamentoActivity extends AppCompatActivity {
                 grid.addView(tabuleiro[i][j]);
             }
         }
-
-
-
 
         listener = new ChildEventListener() {
             @Override
