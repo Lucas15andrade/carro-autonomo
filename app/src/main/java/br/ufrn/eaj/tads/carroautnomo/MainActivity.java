@@ -9,39 +9,29 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button estacionar;
+    private Button mapear;
+    private Button manual;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button botaoManual = findViewById(R.id.botaoManual);
-        botaoManual.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("TESTE", "Botão manual");
-                Intent intent = new Intent(getApplicationContext(), ManualActivity.class);
-                startActivity(intent);
-            }
-        });
+    }
 
-        Button botaoEstacionamento = findViewById(R.id.botaoEstacionamento);
-        botaoEstacionamento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("TESTE", "Botão estacionamento");
-                Intent intent = new Intent(getApplicationContext(), EstacionamentoActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void abaEstacionar(View v){
+        Intent i = new Intent(MainActivity.this, EstacionamentoActivity.class);
+        startActivity(i);
+    }
 
-        Button botaoMapeamento = findViewById(R.id.botaoMapeamento);
-        botaoMapeamento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("TESTE", "Botão mapeamentusdsdi");
-                Intent intent = new Intent(getApplicationContext(), MapeamentoActivity.class);
-                startActivity(intent);
-            }
-        });
+    public void abaMapeamento(View v){
+        Intent i = new Intent(MainActivity.this, MapeamentoActivity.class);
+        startActivity(i);
+    }
+
+    public void abaManual(View v){
+        Intent i = new Intent(MainActivity.this, ManualActivity.class);
+        startActivity(i);
     }
 }

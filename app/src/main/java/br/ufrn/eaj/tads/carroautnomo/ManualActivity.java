@@ -42,7 +42,6 @@ public class ManualActivity extends AppCompatActivity {
     private int contParar = 0;
     private int contFrente = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
