@@ -85,6 +85,5 @@ public class EstacionamentoActivity extends AppCompatActivity {
         };
 
         mreference.addChildEventListener(listener);
-
     }
 }

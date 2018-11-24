@@ -3,4 +3,5 @@
     <string name="estacionar">Estacionamento Autônomo</string>
     <string name="mapear">Modo De Mapeamento</string>
     <string name="manual">Modo Manual</string>
+    <string name="voltar">Voltar</string>
 </resources>
