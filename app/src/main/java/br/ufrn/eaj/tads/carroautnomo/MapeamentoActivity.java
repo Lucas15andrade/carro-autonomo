@@ -26,6 +26,7 @@ public class MapeamentoActivity extends AppCompatActivity {
 
     private FirebaseDatabase mFirebase;
     private DatabaseReference mReference;
+    //private DatabaseReference modoReference;
 
     private ChildEventListener mChildEventListener;
 
@@ -41,7 +42,8 @@ public class MapeamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mapeamento);
 
         mFirebase = FirebaseDatabase.getInstance();
-        mReference = mFirebase.getReference().child("mapeamento");
+        mReference = mFirebase.getReference().child("modo");
+        mReference.setValue("mapeamento");
 
         grid = findViewById(R.id.gridBoardM);
         grid.setRowCount(31);
@@ -58,6 +60,8 @@ public class MapeamentoActivity extends AppCompatActivity {
             }
         }
 
+<<<<<<< HEAD
+=======
 
         //Adicionar linhas e colunas ao Firebase para teste
         /*
@@ -69,15 +73,21 @@ public class MapeamentoActivity extends AppCompatActivity {
 
         //tabuleiro[16][10].setImageResource(R.drawable.blocograyp);
 
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
+<<<<<<< HEAD
+                Log.i("chegou", "chegou ake");
+                tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
+=======
 
                 if(m.getValor() == 1){
                     tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
                 }
 
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
             }
 
             @Override
@@ -106,26 +116,37 @@ public class MapeamentoActivity extends AppCompatActivity {
     }
 
     public void voltar(View v){
+<<<<<<< HEAD
+        //finish();
+        criarDirecoes();
+=======
         finish();
         mReference.removeValue();
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        /*mReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mReference.child("mapeamento").removeValue();
-            }
+        mReference.child("mapeamento").removeValue();
+    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mReference = mFirebase.getReference().child("mapeamento");
+    }
 
+<<<<<<< HEAD
+    public void criarDirecoes(){
+        Mapeamento m = new Mapeamento(10, 16);
+        mReference.push().setValue(m);
+=======
             }
         });*/
 
 
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
     }
 
 }
