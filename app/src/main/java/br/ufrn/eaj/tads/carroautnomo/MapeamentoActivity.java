@@ -60,17 +60,40 @@ public class MapeamentoActivity extends AppCompatActivity {
             }
         }
 
+<<<<<<< HEAD
+=======
+
+        //Adicionar linhas e colunas ao Firebase para teste
+        /*
+        for (int i = 0; i < 3; i++) {
+            Mapeamento m = new Mapeamento(5,i,1);
+            mReference.push().setValue(m);
+        }
+        */
+
+        //tabuleiro[16][10].setImageResource(R.drawable.blocograyp);
+
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
+<<<<<<< HEAD
                 Log.i("chegou", "chegou ake");
                 tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
+=======
+
+                if(m.getValor() == 1){
+                    tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
+                }
+
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                //Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
+                //tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
             }
 
             @Override
@@ -93,8 +116,13 @@ public class MapeamentoActivity extends AppCompatActivity {
     }
 
     public void voltar(View v){
+<<<<<<< HEAD
         //finish();
         criarDirecoes();
+=======
+        finish();
+        mReference.removeValue();
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
     }
 
     @Override
@@ -109,9 +137,16 @@ public class MapeamentoActivity extends AppCompatActivity {
         mReference = mFirebase.getReference().child("mapeamento");
     }
 
+<<<<<<< HEAD
     public void criarDirecoes(){
         Mapeamento m = new Mapeamento(10, 16);
         mReference.push().setValue(m);
+=======
+            }
+        });*/
+
+
+>>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
     }
 
 }

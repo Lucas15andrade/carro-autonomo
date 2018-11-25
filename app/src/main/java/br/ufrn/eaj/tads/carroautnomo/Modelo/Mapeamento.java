@@ -6,10 +6,20 @@ public class Mapeamento {
 
     private int coluna;
     private int linha;
+    private int valor;
 
-    public Mapeamento(int coluna, int linha) {
+    public Mapeamento(int coluna, int linha, int valor) {
         this.coluna = coluna;
         this.linha = linha;
+        this.valor = valor;
+    }
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
     }
 
     public int getColuna() {
