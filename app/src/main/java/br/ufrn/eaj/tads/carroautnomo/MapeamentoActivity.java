@@ -58,18 +58,32 @@ public class MapeamentoActivity extends AppCompatActivity {
             }
         }
 
+
+        //Adicionar linhas e colunas ao Firebase para teste
+        /*
+        for (int i = 0; i < 3; i++) {
+            Mapeamento m = new Mapeamento(5,i,1);
+            mReference.push().setValue(m);
+        }
+        */
+
         //tabuleiro[16][10].setImageResource(R.drawable.blocograyp);
 
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
-                tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
+
+                if(m.getValor() == 1){
+                    tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
+                }
+
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                //Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
+                //tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
             }
 
             @Override
@@ -93,6 +107,7 @@ public class MapeamentoActivity extends AppCompatActivity {
 
     public void voltar(View v){
         finish();
+        mReference.removeValue();
     }
 
     @Override
@@ -109,6 +124,8 @@ public class MapeamentoActivity extends AppCompatActivity {
 
             }
         });*/
+
+
     }
 
 }
