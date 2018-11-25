@@ -18,8 +18,6 @@ import br.ufrn.eaj.tads.carroautnomo.Modelo.Carro;
 
 public class ManualActivity extends AppCompatActivity {
 
-    private ImageView tabuleiro[][];
-
     private Button esquerda;
     private Button direita;
     private Button frente;
@@ -30,8 +28,6 @@ public class ManualActivity extends AppCompatActivity {
     * */
     private FirebaseDatabase mFirebase;
     private DatabaseReference mReference;
-
-    private ChildEventListener mChildEventListener;
 
     private Carro mCarro;
     private boolean bEsquerda = false;
@@ -53,36 +49,8 @@ public class ManualActivity extends AppCompatActivity {
         parar = findViewById(R.id.parar);
 
         mFirebase = FirebaseDatabase.getInstance();
-        mReference = mFirebase.getReference().child("carro");
-
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        };
-
-        mReference.addChildEventListener(mChildEventListener);
+        mReference = mFirebase.getReference().child("modo");
+        mReference.setValue("manual");
 
         esquerda.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,5 +101,11 @@ public class ManualActivity extends AppCompatActivity {
                 mReference.setValue(mCarro);
             }
         });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        mReference = mFirebase.getReference().child("carro");
     }
 }
