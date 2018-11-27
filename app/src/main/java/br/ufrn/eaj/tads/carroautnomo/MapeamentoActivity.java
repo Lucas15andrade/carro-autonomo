@@ -53,15 +53,13 @@ public class MapeamentoActivity extends AppCompatActivity {
 
         tabuleiro = new ImageView[grid.getRowCount()][grid.getColumnCount()];
 
-        for(int i = 0; i < grid.getRowCount(); i++){
-            for(int j = 0; j < grid.getColumnCount(); j++){
-                tabuleiro[i][j] = (ImageView) inflate.inflate(R.layout.layout_inflate_imagewhite, grid,false);
+        for (int i = 0; i < grid.getRowCount(); i++) {
+            for (int j = 0; j < grid.getColumnCount(); j++) {
+                tabuleiro[i][j] = (ImageView) inflate.inflate(R.layout.layout_inflate_imagewhite, grid, false);
                 grid.addView(tabuleiro[i][j]);
             }
         }
 
-<<<<<<< HEAD
-=======
 
         //Adicionar linhas e colunas ao Firebase para teste
         /*
@@ -73,21 +71,16 @@ public class MapeamentoActivity extends AppCompatActivity {
 
         //tabuleiro[16][10].setImageResource(R.drawable.blocograyp);
 
->>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
+
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 Mapeamento m = dataSnapshot.getValue(Mapeamento.class);
-<<<<<<< HEAD
-                Log.i("chegou", "chegou ake");
-                tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
-=======
 
-                if(m.getValor() == 1){
+                if (m.getValor() == 1) {
                     tabuleiro[m.getLinha()][m.getColuna()].setImageResource(R.drawable.blocograyp);
                 }
 
->>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
             }
 
             @Override
@@ -115,14 +108,13 @@ public class MapeamentoActivity extends AppCompatActivity {
 
     }
 
-    public void voltar(View v){
-<<<<<<< HEAD
+    public void voltar(View v) {
         //finish();
         criarDirecoes();
-=======
+
         finish();
         mReference.removeValue();
->>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
+
     }
 
     @Override
@@ -132,21 +124,18 @@ public class MapeamentoActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         mReference = mFirebase.getReference().child("mapeamento");
     }
 
-<<<<<<< HEAD
-    public void criarDirecoes(){
-        Mapeamento m = new Mapeamento(10, 16);
-        mReference.push().setValue(m);
-=======
-            }
-        });*/
 
+    public void criarDirecoes() {
+        //Mapeamento m = new Mapeamento(10, 16);
+        //mReference.push().setValue(m);
 
->>>>>>> 7db9eea034e3cfb202d30ea688171958cd321d9c
     }
-
 }
+
+
+
