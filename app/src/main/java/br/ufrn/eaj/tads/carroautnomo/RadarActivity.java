@@ -15,7 +15,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import br.ufrn.eaj.tads.carroautnomo.Modelo.Carro;
 import br.ufrn.eaj.tads.carroautnomo.Modelo.RadarModelo;
 import processing.android.PFragment;
 import processing.android.CompatUtils;
@@ -37,33 +39,17 @@ public class RadarActivity extends AppCompatActivity {
 
         mFirebase = FirebaseDatabase.getInstance();
         mReference = mFirebase.getReference().child("angulo");
-        //mReference.setValue("mapeamento");
+        mReference.setValue(0);
 
         sketch = new Radar();
 
-
-        mChildEventListener = new ChildEventListener() {
+        ValueEventListener value = new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                RadarModelo radar = dataSnapshot.getValue(RadarModelo.class);
-                angulo = radar.getAngulo();
-                Log.i("TESTE","mudou");
-                ((Radar) sketch).setAngulo(angulo);
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Log.i("TESTE", dataSnapshot.getKey());
+                //RadarModelo radar = dataSnapshot.getValue(RadarModelo.class);
+                Log.i("TESTE", "EOQ: "+ dataSnapshot.getValue().toString());
+                ((Radar) sketch).setAngulo(Integer.parseInt(dataSnapshot.getValue().toString()));
             }
 
             @Override
@@ -71,7 +57,7 @@ public class RadarActivity extends AppCompatActivity {
 
             }
         };
-        mReference.addChildEventListener(mChildEventListener);
+        mReference.addValueEventListener(value);
 
         FrameLayout frame = new FrameLayout(this);
         frame.setId(CompatUtils.getUniqueViewId());
