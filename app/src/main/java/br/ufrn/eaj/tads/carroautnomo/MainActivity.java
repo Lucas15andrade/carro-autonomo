@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void abaMapeamento(View v){
-        Intent i = new Intent(MainActivity.this, MapeamentoActivity.class);
+        //Intent i = new Intent(MainActivity.this, MapeamentoActivity.class);
+        Intent i = new Intent(getApplicationContext(), RadarActivity.class);
         startActivity(i);
     }
 

@@ -107,7 +107,6 @@ public class MapeamentoActivity extends AppCompatActivity {
         mReference.addChildEventListener(mChildEventListener);
 
 
-        
 
     }
 
