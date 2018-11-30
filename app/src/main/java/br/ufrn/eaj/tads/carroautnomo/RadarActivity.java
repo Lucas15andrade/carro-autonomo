@@ -29,6 +29,7 @@ public class RadarActivity extends AppCompatActivity {
 
     private FirebaseDatabase mFirebase;
     private DatabaseReference mReference;
+    private DatabaseReference mReferenceDistancia;
     private ChildEventListener mChildEventListener;
 
     int angulo;
@@ -39,16 +40,18 @@ public class RadarActivity extends AppCompatActivity {
 
         mFirebase = FirebaseDatabase.getInstance();
         mReference = mFirebase.getReference().child("angulo");
-        mReference.setValue(0);
+        mReferenceDistancia = mFirebase.getReference().child("distancia");
+        //mReference.setValue(0);
 
         sketch = new Radar();
 
-        ValueEventListener value = new ValueEventListener() {
+        //Listenner que fica ouvindo o ângulo do servo motor do arduino
+        ValueEventListener valueAngulo = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //Log.i("TESTE", dataSnapshot.getKey());
                 //RadarModelo radar = dataSnapshot.getValue(RadarModelo.class);
-                Log.i("TESTE", "EOQ: "+ dataSnapshot.getValue().toString());
+                Log.i("TESTE", "Angulo: "+ dataSnapshot.getValue().toString());
                 ((Radar) sketch).setAngulo(Integer.parseInt(dataSnapshot.getValue().toString()));
             }
 
@@ -57,8 +60,24 @@ public class RadarActivity extends AppCompatActivity {
 
             }
         };
-        mReference.addValueEventListener(value);
+        mReference.addValueEventListener(valueAngulo);
 
+        //Listenner que fica ouvindo a distância obtida pelo sensor ultrassônico
+        ValueEventListener valueDistancia = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.i("TESTE", "Distância: "+ dataSnapshot.getValue().toString());
+                ((Radar) sketch).setDistancia(Integer.parseInt(dataSnapshot.getValue().toString()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        mReferenceDistancia.addValueEventListener(valueDistancia);
+
+        //Configuração padrão do layout do radar
         FrameLayout frame = new FrameLayout(this);
         frame.setId(CompatUtils.getUniqueViewId());
         setContentView(frame, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,

@@ -57,6 +57,10 @@ public class Radar extends PApplet {
         iAngulo = angulo;
     }
 
+    public void setDistancia(int distancia){
+        iDistancia = distancia;
+    }
+
     public void setup() {
 
         // Aqui é onde você coloca a resolução da sua tela
