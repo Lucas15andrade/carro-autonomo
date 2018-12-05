@@ -7,46 +7,63 @@
     tools:context=".ManualActivity">
 
     <Button
-        android:id="@+id/esquerda"
+        android:id="@+id/estacionamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="52dp"
-        android:text="Esquerda"
-        app:layout_constraintBottom_toTopOf="@+id/frente"
-        app:layout_constraintEnd_toStartOf="@+id/direita"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/direita"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="199dp"
-        android:text="Direita"
+        android:layout_marginBottom="47dp"
+        android:background="@drawable/shape_button"
+        android:gravity="center"
+        android:text="Estacionamento"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/esquerda" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parar" />
 
-    <Button
+    <ImageView
         android:id="@+id/frente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:text="Frente"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/parar"
+        app:layout_constraintEnd_toEndOf="@+id/parar"
+        app:layout_constraintStart_toStartOf="@+id/parar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconfinder_arrow_retro_up_1063864" />
+
+    <ImageView
+        android:id="@+id/direita"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/parar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/parar"
+        app:layout_constraintTop_toTopOf="@+id/parar"
+        app:srcCompat="@drawable/iconfinder_arrow_retro_right_1063865" />
+
+    <ImageView
+        android:id="@+id/esquerda"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/parar"
         app:layout_constraintEnd_toStartOf="@+id/parar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/parar" />
+        app:layout_constraintTop_toTopOf="@+id/parar"
+        app:srcCompat="@drawable/iconfinder_arrow_retro_left_1063866" />
 
-    <Button
+    <ImageView
         android:id="@+id/parar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="4dp"
-        android:text="Parar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/frente"
-        app:layout_constraintTop_toBottomOf="@+id/direita" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="99dp"
+        app:layout_constraintBottom_toTopOf="@+id/estacionamento"
+        app:layout_constraintEnd_toStartOf="@+id/direita"
+        app:layout_constraintStart_toEndOf="@+id/esquerda"
+        app:layout_constraintTop_toBottomOf="@+id/frente"
+        app:srcCompat="@drawable/iconfinder_arrow_retro_down_1063867" />
+
 </android.support.constraint.ConstraintLayout>

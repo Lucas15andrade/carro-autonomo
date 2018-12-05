@@ -19,21 +19,6 @@
 
 
     <Button
-        android:id="@+id/estacionar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/shape_button"
-        android:onClick="abaEstacionar"
-        android:text="@string/estacionar"
-        app:layout_constraintBottom_toTopOf="@+id/mapear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/mapear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -68,7 +53,9 @@
         android:layout_height="0dp"
         android:layout_marginTop="71dp"
         android:text="Intelligent Vehicle"
-        android:textSize="30dp"
+        android:textSize="36dp"
+        android:fontFamily="@font/sixty"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +67,9 @@
         android:layout_width="128dp"
         android:layout_height="0dp"
         android:text="Manager"
-        android:textSize="30dp"
+        android:textSize="40dp"
+        android:fontFamily="@font/sixty"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

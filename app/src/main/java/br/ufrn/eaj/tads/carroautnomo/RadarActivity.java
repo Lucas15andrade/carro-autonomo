@@ -39,9 +39,10 @@ public class RadarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mFirebase = FirebaseDatabase.getInstance();
+        mReference = mFirebase.getReference().child("modo");
+        mReference.setValue("mapeamento");
         mReference = mFirebase.getReference().child("angulo");
         mReferenceDistancia = mFirebase.getReference().child("distancia");
-        //mReference.setValue(0);
 
         sketch = new Radar();
 
@@ -114,6 +115,12 @@ public class RadarActivity extends AppCompatActivity {
         if (sketch != null) {
             sketch.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+
     }
 }
 

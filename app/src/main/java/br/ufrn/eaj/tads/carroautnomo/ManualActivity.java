@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -18,10 +19,12 @@ import br.ufrn.eaj.tads.carroautnomo.Modelo.Carro;
 
 public class ManualActivity extends AppCompatActivity {
 
-    private Button esquerda;
-    private Button direita;
-    private Button frente;
-    private Button parar;
+    private ImageView esquerda;
+    private ImageView direita;
+    private ImageView frente;
+    private ImageView parar;
+
+    private Button estacionamento;
 
     /*
     * OBJETOS DE ACESSO AO FIREBASE
@@ -47,6 +50,8 @@ public class ManualActivity extends AppCompatActivity {
         direita = findViewById(R.id.direita);
         frente = findViewById(R.id.frente);
         parar = findViewById(R.id.parar);
+
+        estacionamento = findViewById(R.id.estacionamento);
 
         mFirebase = FirebaseDatabase.getInstance();
         mReference = mFirebase.getReference().child("modo");
@@ -99,6 +104,16 @@ public class ManualActivity extends AppCompatActivity {
                 }
                 mCarro = new Carro(bEsquerda, bDireita, bFrente, bTras);
                 mReference.setValue(mCarro);
+            }
+        });
+
+        estacionamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ManualActivity.this, "Modo Mapeamento Ativo", Toast.LENGTH_LONG).show();
+                mReference = mFirebase.getReference().child("modo");
+                mReference.setValue("estacionamento");
+                mReference = mFirebase.getReference().child("carro");
             }
         });
     }
